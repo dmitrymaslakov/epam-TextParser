@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using TextParser.DAL.Entities;
 
 namespace TextParser.DAL.Interfaces
 {
     public interface ISentence
     {
-        IEnumerable<ISentenceItem> TextItemsStore { get; }
+        List<ISentenceItem> TextItemsStore { get; }
         int FirstItemPosition { get; }
         int LastItemPosition { get; }
         int Position { get; }

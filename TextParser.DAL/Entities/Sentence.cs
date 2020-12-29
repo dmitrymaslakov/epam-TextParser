@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,7 @@ namespace TextParser.DAL.Entities
 {
     public class Sentence : ISentence
     {
-        public IEnumerable<ISentenceItem> TextItemsStore { get; set; }
+        public List<ISentenceItem> TextItemsStore { get; set; }
         public int FirstItemPosition { get; set; }
         public int LastItemPosition { get; set; }
         public int Position { get; set; }
@@ -17,14 +16,14 @@ namespace TextParser.DAL.Entities
         public SentenceTypes Type { get; set; }
 
         public Sentence(
-            IEnumerable<ISentenceItem> textItemsStore,
+            List<ISentenceItem> textItemsStore,
             int firstItemPosition, int lastItemPosition, int position, SentenceTypes type)
         {
             TextItemsStore = textItemsStore;
             FirstItemPosition = firstItemPosition;
             LastItemPosition = lastItemPosition;
             Position = position;
-            WordCount = Position == 20 ? 0 : GetWordCount();
+            WordCount = GetWordCount();
             Type = type;
         }
 
@@ -66,7 +65,16 @@ namespace TextParser.DAL.Entities
                 .ToList()
                 ;
 
-            TextItemsStore = TextItemsStore.Append(new Word(replacement, positions, ItemTypes.Word)).ToList();
+            if (TextItemsStore.Any(s => Equals(s.Value, replacement)))
+            {
+                TextItemsStore
+                    .SingleOrDefault(s => Equals(s.Value, replacement))
+                    .AddPositions(positions);
+            }
+            else
+            {
+                TextItemsStore.Add(new Word(replacement, positions, ItemTypes.Word));
+            }
 
             foreach (var word in words)
             {

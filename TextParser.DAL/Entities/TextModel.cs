@@ -12,17 +12,17 @@ namespace TextParser.DAL.Entities
     {
         private const string CONSONANT_LETTER = @"^[+бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxz]{1,}";
 
-        public IEnumerable<ISentenceItem> TextItemsStore { get; set; }
+        public List<ISentenceItem> TextItemsStore { get; set; }
         public IEnumerable<ISentence> Sentences { get; set; }
         public int Count { get; private set; }
 
-        public TextModel(IEnumerable<ISentenceItem> textItemsStore)
+        public TextModel(List<ISentenceItem> textItemsStore)
         {
             TextItemsStore = textItemsStore;
 
             Sentences = GetSentences();
 
-            Count = TextItemsStore.Select(i => i.Positions.Max()).Max();
+            Count = TextItemsStore.Select(i => i.Positions.Count()).Sum();
         }
 
         public void DeleteWordBy(int wordLength, bool isConsonantLetter)
@@ -55,7 +55,7 @@ namespace TextParser.DAL.Entities
             foreach (var word in words)
             {
                 TextItemsStore = TextItemsStore
-                    .Where(i => !i.Equals(word));
+                    .Where(i => !i.Equals(word)).ToList();
             }
 
             for (int i = 0, temp = 0; i < positions.Count; i++)
@@ -76,7 +76,7 @@ namespace TextParser.DAL.Entities
             }
             Sentences = GetSentences();
 
-            Count = TextItemsStore.Select(i => i.Positions.Max()).Max();
+            Count = TextItemsStore.Select(i => i.Positions.Count()).Sum();
         }
 
         public void PrintSentencesInAscendingOrder()
@@ -175,10 +175,10 @@ namespace TextParser.DAL.Entities
                     offset = lastItemPosition + 2;
                     return new Sentence(TextItemsStore, firstItemPosition, lastItemPosition, count++, type);
                 })
+                .ToList()
                 ;
 
             return sentences;
         }
-
     }
 }

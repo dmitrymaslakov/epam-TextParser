@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TextParser.DAL.Entities;
 using TextParser.DAL.Interfaces;
 
@@ -32,9 +30,10 @@ namespace TextParser.DAL.Abstract
             Type = type;
         }
 
-        public virtual void AddPosition(int position)
+        public virtual void AddPositions(IEnumerable<int> positions)
         {
-            Positions = Positions.Append(position);
+
+            Positions = Positions.Concat(positions);
         }
 
         public virtual void DisplaceItems(int fromPosition, int steps)

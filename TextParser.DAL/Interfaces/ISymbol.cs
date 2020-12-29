@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TextParser.DAL.Interfaces
+﻿namespace TextParser.DAL.Interfaces
 {
     public interface ISymbol
     {

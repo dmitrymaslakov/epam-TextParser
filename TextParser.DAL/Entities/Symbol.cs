@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TextParser.DAL.Abstract;
-using TextParser.DAL.Interfaces;
+﻿using TextParser.DAL.Interfaces;
 
 namespace TextParser.DAL.Entities
 {

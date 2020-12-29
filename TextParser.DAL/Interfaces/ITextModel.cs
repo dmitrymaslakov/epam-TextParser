@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using TextParser.DAL.Entities;
 
 namespace TextParser.DAL.Interfaces
 {
     public interface ITextModel
     {
-        IEnumerable<ISentenceItem> TextItemsStore { get; set; }
+        List<ISentenceItem> TextItemsStore { get; set; }
 
         void PrintSentencesInAscendingOrder();
         void PrintWordsIn(SentenceTypes sentenceType, int wordLength);

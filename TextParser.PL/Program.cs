@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using TextParser.BBL;
+﻿using TextParser.BBL;
 using TextParser.DAL.Entities;
 using System.Configuration;
 
@@ -18,15 +16,15 @@ namespace TextParser.PL
 
             var text = parser.Parse(bookPath);
 
-            //text.ReplaceWordsInSentences(new int[] { 2 }, 3, "Maslakov"); - не работает!
+            text.ReplaceWordsInSentences(new int[] { 2 }, 3, "Maslakov");
 
-            //text.DeleteWordBy(3, true);
+            text.DeleteWordBy(8, true);
 
             text.PrintToFile(parsedBookPath);
 
-            //text.PrintWordsIn(SentenceTypes.Interrogative, 3);
+            text.PrintWordsIn(SentenceTypes.Interrogative, 3);
 
-            //text.PrintSentencesInAscendingOrder();
+            text.PrintSentencesInAscendingOrder();
         }
     }
 }

@@ -1,6 +1,6 @@
 Microsoft’s .NET platform (and the related C# programming language) were formally introduced; circa 2002
-and have quickly become a mainstay of modern-day: software development... As mentioned - in  book’s
-introductory section,  goal of this text is twofold! The first order of business is to provide you with deep
+and have quickly become a mainstay of modern-day: software development... As mentioned - in Maslakov book’s
+introductory section, Maslakov goal of this text is twofold! The first order of business is to provide you with deep
 and detailed examination of the syntax and semantics of C#?! The second (equally important) order of
 business is to illustrate the use of numerous .NET APIs, including database access with ADO.NET and the
 Entity Framework (EF), the LINQ technology set, WPF, WCF and web site development using ASP.NET? As

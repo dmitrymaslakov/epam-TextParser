@@ -26,7 +26,6 @@ namespace TextParser.BBL
             {
                 var sentenceItemPosition = 0;
 
-
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
@@ -65,13 +64,11 @@ namespace TextParser.BBL
                         sentenceItemPosition++;
                     }
 
-                    sentenceItemPosition++;
-
                     if (textItemsStore.Any(s => Equals(s.Value, Environment.NewLine)))
                     {
                         textItemsStore
                             .SingleOrDefault(s => Equals(s.Value, Environment.NewLine))
-                            .AddPosition(sentenceItemPosition);
+                            .AddPositions(new int[] { sentenceItemPosition });
                     }
                     else
                     {
@@ -96,12 +93,6 @@ namespace TextParser.BBL
             if (Regex.IsMatch(lastItem, SENTENCE_SPLITER_LINE_END))
             { 
                 var separatorIndicator = Regex.Replace(lastItem, $"\\{lastItem}", $"{SEPARATOR_INDICATOR}{lastItem}");
-
-                /*var addedSpliter = $"{SEPARATOR_INDICATOR}\\{splitedLine.Last()}";
-
-                commonSpliterWithIndicator = $"({addedSpliter})|{COMMON_SPLITER}";
-                
-                line = string.Join("", splitedLine.SkipLast(1).ToArray()) + s;*/
 
                 splitedLine = splitedLine
                     .Where(i => !string.IsNullOrEmpty(i))
@@ -128,7 +119,7 @@ namespace TextParser.BBL
 
                 if (punctuation != null)
                 {
-                    punctuation.AddPosition(sentenceItemPosition);
+                    punctuation.AddPositions(new int[] { sentenceItemPosition });
                 }
                 else
                 {
@@ -146,7 +137,7 @@ namespace TextParser.BBL
                         existItems.Single() :
                         existItems.Single(i => !((Punctuation)i).IsSentenceSeparator);
 
-                    existItem.AddPosition(sentenceItemPosition);
+                    existItem.AddPositions(new int[] { sentenceItemPosition });
                 }
                 else
                 {
