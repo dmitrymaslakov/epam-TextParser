@@ -9,11 +9,11 @@ namespace TextParser.DAL.Entities
     public class Sentence : ISentence
     {
         public List<ISentenceItem> TextItemsStore { get; set; }
-        public int FirstItemPosition { get; set; }
-        public int LastItemPosition { get; set; }
-        public int Position { get; set; }
-        public int WordCount { get; set; }
-        public SentenceTypes Type { get; set; }
+        public int FirstItemPosition { get; private set; }
+        public int LastItemPosition { get; private set; }
+        public int Position { get; private set; }
+        public int WordCount { get; private set; }
+        public SentenceTypes Type { get; private set; }
 
         public Sentence(
             List<ISentenceItem> textItemsStore,

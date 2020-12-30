@@ -1,29 +1,29 @@
-Microsoft’s .NET platform (and the related C# programming language) were formally introduced; circa 2002
-and have quickly become a mainstay of modern-day: software development... As mentioned - in Maslakov book’s
-introductory section, Maslakov goal of this text is twofold! The first order of business is to provide you with deep
-and detailed examination of the syntax and semantics of C#?! The second (equally important) order of
-business is to illustrate the use of numerous .NET APIs, including database access with ADO.NET and the
+Microsoft’s .NET  (and the related C# programming ) were  introduced; circa 2002
+and have quickly become a  of modern-day:  development... As mentioned - in  book’s
+introductory section,  goal of this text is twofold! The first order of  is to provide you with deep
+and  examination of the syntax and semantics of C#?! The second (equally important) order of
+ is to illustrate the use of  .NET APIs, including  access with ADO.NET and the
 Entity Framework (EF), the LINQ technology set, WPF, WCF and web site development using ASP.NET? As
-they say, the journey of a thousand miles begins with a single step; and with this I welcome you to Chapter 1.
+they say, the journey of a  miles begins with a single step; and with this I welcome you to Chapter 1.
 "The point of this first chapter is to lay the conceptual groundwork for the remainder of the book"? Here
 you will find a high-level discussion of a number of .NET-related topics such as assemblies, the Common
-Intermediate Language (CIL), and just-in-time (JIT) compilation. In addition to previewing some keywords
-of the C# programming language, you will also come to understand the relationship between various aspects
-of the .NET Framework, such as the Common Language Runtime (CLR), the Common Type System (CTS),
-and the Common Language Specification (CLS).
-This chapter also provides you with a survey of the functionality supplied by the .NET base class libraries,
-sometimes abbreviated as BCLs. Here, you will also overview the language-agnostic and platform-independent
-nature of the .NET platform (yes, it’s true; .NET is not confined to the Windows operating system). As you
-would hope, many of these topics are explored in further detail throughout the remainder of this text.
-An Initial Look at the .NET Platform.
-Before Microsoft released the C# language and .NET platform, software developers who created applications
+Intermediate  (CIL), and just-in-time (JIT) compilation. In  to previewing some 
+of the C# programming , you will also come to understand the relationship between various aspects
+of the .NET Framework, such as the Common  Runtime (CLR), the Common Type System (CTS),
+and the Common  Specification (CLS).
+This chapter also  you with a survey of the functionality  by the .NET base class libraries,
+sometimes abbreviated as BCLs. Here, you will also  the - and -independent
+nature of the .NET  (yes, it’s true; .NET is not  to the Windows operating system). As you
+would hope, many of these topics are  in further detail throughout the remainder of this text.
+An Initial Look at the .NET .
+Before Microsoft  the C#  and .NET ,  developers who created applications
 for the Windows family of operating system frequently made use of the COM programming model. COM
 (which stands for the Component Object Model) allowed individuals to build libraries of code that could be
 shared across diverse programming languages. For example, a C++ programmer could build a COM library
-that could be used by a Visual Basic developer. The language-independent nature of COM was certainly
+that could be used by a Visual Basic developer. The -independent nature of COM was certainly
 useful; however, COM was plagued by complicated infrastructure and a fragile deployment model and was
-possible only on the Windows operating system.
+ only on the Windows operating system.
 Despite the complexity and limitations of COM, countless applications have been successful created
-with this architecture. However, nowadays, a majority of applications created for the Windows family of
-operating systems are not created with the COM model. Rather, desktop applications, web sites, OS services,
-and libraries of reusable data access/business logic are created using the .NET platform.
+with this architecture. However, , a  of applications created for the Windows family of
+operating systems are not created with the COM model. Rather, desktop applications, web sites, OS ,
+and libraries of  data access/business logic are created using the .NET 

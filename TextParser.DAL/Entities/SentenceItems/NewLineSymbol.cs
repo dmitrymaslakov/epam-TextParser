@@ -8,7 +8,7 @@ namespace TextParser.DAL.Entities
 {
     public class NewLineSymbol : BasicSentenceItem
     {
-        public override IEnumerable<ISymbol> Symbols { get; set; }
+        public override IEnumerable<ISymbol> Symbols { get; protected set; }
         public override string Value => Environment.NewLine;
 
         public NewLineSymbol(IEnumerable<int> positions, ItemTypes type) : base(positions, type)

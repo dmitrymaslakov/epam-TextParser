@@ -8,8 +8,22 @@ namespace TextParser.DAL.Abstract
 {
     public abstract class BasicSentenceItem : ISentenceItem, IEnumerable<ISymbol>
     {
-        public virtual string Value { get; set; }
-        public virtual IEnumerable<ISymbol> Symbols { get; set; }
+        private string _value;
+
+        public virtual string Value
+        {
+            get => _value;
+            set
+            {
+                _value = value;
+
+                Symbols = Value.Select(ch => new Symbol(ch));
+
+                Length = Value.Length;
+            }
+        }
+        public virtual int Length { get; protected set; }
+        public virtual IEnumerable<ISymbol> Symbols { get; protected set; }
         public virtual IEnumerable<int> Positions { get; set; }
         public ItemTypes Type { get; }
 
@@ -26,6 +40,8 @@ namespace TextParser.DAL.Abstract
             Positions = positions;
 
             Symbols = Value.Select(ch => new Symbol(ch));
+            
+            Length = Value.Length;
 
             Type = type;
         }

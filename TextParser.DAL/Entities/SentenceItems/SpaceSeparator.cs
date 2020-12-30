@@ -7,7 +7,7 @@ namespace TextParser.DAL.Entities
 {
     public class SpaceSeparator : BasicSentenceItem
     {
-        public override IEnumerable<ISymbol> Symbols { get; set; }
+        public override IEnumerable<ISymbol> Symbols { get; protected set; }
         public override string Value => " ";
 
         public SpaceSeparator(IEnumerable<int> positions, ItemTypes type) : base(positions, type)

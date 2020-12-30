@@ -18,10 +18,10 @@ namespace TextParser.PL
 
             text.ReplaceWordsInSentences(new int[] { 2 }, 3, "Maslakov");
 
-            text.DeleteWordBy(8, true);
+            text.DeleteWordBy(8, false);
 
             text.PrintToFile(parsedBookPath);
-
+            
             text.PrintWordsIn(SentenceTypes.Interrogative, 3);
 
             text.PrintSentencesInAscendingOrder();
